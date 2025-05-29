@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Minimalist To-Do</title>
+  <style>body {
+  font-family: sans-serif;
+  background: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  width: 300px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.input-group {
+  display: flex;
+  gap: 0.5rem;
+}
+
+input {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  border: none;
+  background: #333;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem;
+  margin-bottom: 0.3rem;
+  background: #fafafa;
+  border: 1px solid #eee;
+  border-radius: 4px;
+}
+
+li.done span {
+  text-decoration: line-through;
+  color: #aaa; /* Optional: Lighter color for completed tasks */
+}
+
+/* Do not apply line-through to the remove button */
+li.done .remove {
+  text-decoration: none; /* Ensure no line-through on the remove button */
+  color: red;
+}
+
+input[type="checkbox"]:checked + span {
+  text-decoration: line-through;
+  color: #aaa;
+}
+
+li span {
+  flex: 1;
+  margin-left: 0.5rem;
+  cursor: pointer;
+}
+
+.remove {
+  margin-left: 10px;
+  color: #d00;
+  cursor: pointer;
+}
+
+#taskInput {
+  display: none;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+#taskInput.visible {
+  display: block;
+  opacity: 1;
+  animation: fadeInPlaceholder 0.5s ease forwards;
+}
+
+@keyframes fadeInPlaceholder {
+  0% {
+    opacity: 0;
+    placeholder-opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    placeholder-opacity: 1;
+  }
+}
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="input-group">
+      <input type="text" id="taskInput" placeholder="Add a new task..." />
+      <button onclick="addTask()">+</button>
+    </div>
+    <ul id="taskList"></ul>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
